@@ -1,6 +1,7 @@
 $('#addAnimal').on('click', function() {
         $("#gifsGoHere").empty();
         var animal = $(this).data('animal');
+        var state = $(this).attr('data-state'); 
         console.log(this);
         var userInput = document.getElementById("animal-input").value;
         console.log(userInput);
@@ -11,9 +12,14 @@ $('#addAnimal').on('click', function() {
             buttonDiv.append(b);
 
             $('#animalButtons').append(buttonDiv);
+                console.log(this);
+
+                
+
         };
 
         makeButton();
+
 
 
 
@@ -50,13 +56,26 @@ $('#addAnimal').on('click', function() {
                     
                 
                 $('#gifsGoHere').append(gifDiv);
-        
+                       
+                     if ( state == 'still'){
+                        $(this).attr('src', $(this).data('animate'));
+                        $(this).attr('data-state', 'animate');
+                     }
+                    
+                     else{
+                        $(this).attr('src', $(this).data('still'));
+                        $(this).attr('data-state', 'still');
+                    }
+                
                 }
                 
             });
 
             return false;
-        })
+
+        });    
+        
+
 
             
     
