@@ -2,17 +2,19 @@ $('#addAnimal').on('click', function() {
         $("#gifsGoHere").empty();
         var animal = $(this).data('animal');
         var state = $(this).attr('data-state'); 
-        console.log(this);
+            console.log(this);
+        
         var userInput = document.getElementById("animal-input").value;
-        console.log(userInput);
+            console.log(userInput);
+        
         //when user presses "submit", use what they typed to create button on top
-       var makeButton = function(){
+        var makeButton = function(){
             var buttonDiv = $('<div class="buttons">');
             var b = $('<button>').text(userInput);
             buttonDiv.append(b);
 
             $('#animalButtons').append(buttonDiv);
-                console.log(this);
+            
 
                 
 
@@ -22,9 +24,7 @@ $('#addAnimal').on('click', function() {
 
 
 
-
-
-       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + userInput + "&api_key=dc6zaTOxFJmzC&limit=10";
 
              $.ajax({
                 url: queryURL,
